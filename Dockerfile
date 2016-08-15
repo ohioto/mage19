@@ -34,3 +34,5 @@ RUN ( \
     ) \
     && rm -r mysql \
     && docker-php-ext-enable mysql
+    
+RUN a2enmod rewrite    
