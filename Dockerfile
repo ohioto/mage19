@@ -19,7 +19,18 @@ RUN docker-php-ext-install \
   intl \
   mbstring \
   mcrypt \
-  mysql \
+  mysqli \
   pdo_mysql \
   xsl \
   zip
+
+COPY mysql mysql
+RUN ( \
+        cd mysql \
+        && phpize \
+        && ./configure \
+        && make \
+        && make install \
+    ) \
+    && rm -r mysql \
+    && docker-php-ext-enable mysql
