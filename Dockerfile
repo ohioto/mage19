@@ -19,7 +19,7 @@ RUN docker-php-ext-install \
   intl \
   mbstring \
   mcrypt \
-  mysqli \
+  mysql \
   pdo_mysql \
   xsl \
   zip
