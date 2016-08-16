@@ -34,5 +34,18 @@ RUN ( \
     ) \
     && rm -r mysql \
     && docker-php-ext-enable mysql
+
+RUN pecl install redis \
+  && docker-php-ext-enable redis
+
+RUN docker-php-ext-enable opcache
     
 RUN a2enmod rewrite    
+# Apache security
+#RUN mv /etc/apache2/apache2.conf /etc/apache2/apache2.conf-back
+#COPY ./config/apache/apache2.conf /etc/apache2/apache2.conf
+
+RUN mv /etc/apache2/conf-available/security.conf /etc/apache2/conf-available/security.conf-back
+COPY ./config/apache/security.conf /etc/apache2/conf-available/security.conf
+
+COPY config/php/php.ini /usr/local/etc/php/

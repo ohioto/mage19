@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  web:
+    image: ohiotoo/mage19:latest
+    #build: .
+    volumes:
+      - /mnt/nfs:/mnt/nfs
+      - /home/ec2-user/docker/nnaws/:/var/www/html/
+    network_mode: "host"
