@@ -7,4 +7,7 @@ services:
     volumes:
       - /mnt/nfs:/mnt/nfs
       - /home/ec2-user/docker/nnaws/:/var/www/html/
-    network_mode: "host"
+      - ./ssl:/etc/apache2/external/
+    ports:
+      - 80:80
+      - 443:443

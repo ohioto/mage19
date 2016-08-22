@@ -41,11 +41,14 @@ RUN pecl install redis \
 RUN docker-php-ext-enable opcache
     
 RUN a2enmod rewrite    
+RUN a2enmod ssl
 # Apache security
 #RUN mv /etc/apache2/apache2.conf /etc/apache2/apache2.conf-back
 #COPY ./config/apache/apache2.conf /etc/apache2/apache2.conf
 
 RUN mv /etc/apache2/conf-available/security.conf /etc/apache2/conf-available/security.conf-back
 COPY ./config/apache/security.conf /etc/apache2/conf-available/security.conf
+
+COPY ./config/apache/001-default-ssl.conf /etc/apache2/sites-enabled/001-default-ssl.conf
 
 COPY config/php/php.ini /usr/local/etc/php/
