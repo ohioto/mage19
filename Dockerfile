@@ -22,6 +22,7 @@ RUN docker-php-ext-install \
   mysqli \
   pdo_mysql \
   xsl \
+  soap \
   zip
 
 COPY mysql mysql
