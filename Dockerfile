@@ -52,3 +52,6 @@ COPY ./config/apache/security.conf /etc/apache2/conf-available/security.conf
 COPY ./config/apache/001-default-ssl.conf /etc/apache2/sites-enabled/001-default-ssl.conf
 
 COPY config/php/php.ini /usr/local/etc/php/
+
+RUN usermod -u 48 www-data
+RUN groupmod -g 48  www-data
