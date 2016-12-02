@@ -6,7 +6,7 @@ services:
     #build: .
     volumes:
       - /mnt/nfs:/mnt/nfs
-      - /home/ec2-user/docker/nnaws/:/var/www/html/
+      - /var/www/html/magento/:/var/www/html/
       - ./ssl:/etc/apache2/external/
     ports:
       - 80:80
